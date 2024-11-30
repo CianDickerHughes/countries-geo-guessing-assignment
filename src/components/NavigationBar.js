@@ -1,18 +1,22 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import earth from '../img/earth-globe-tool-svgrepo-com.svg';
 
-// Navigation Bar in dark theme
-// Links to the home, create and read pages
+// Navigation Bar in secondary theme
+// Links to the home, create, read pages and Guess Countres Game
 const NavigationBar = () => {
   return (
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg="secondary" data-bs-theme="light" style ={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <img src={earth} alt='world' style={{ width: '50px', height: 'auto' }} />
+              <br></br>Countries Geo Guess
+            </Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/create">Add New Counter</Nav.Link>
               <Nav.Link href="/read">Read All Counters</Nav.Link>
+              <Nav.Link href="/game">Guess Countres Game</Nav.Link>
             </Nav>
           </Container>
       </Navbar>
