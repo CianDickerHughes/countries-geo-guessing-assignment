@@ -12,50 +12,61 @@ app.use(bodyParser.json());
 
 // get mongooseDB and login
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@cluster0.g9bhw.mongodb.net/DB14');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.nsxux.mongodb.net/DBCGG');
 
-// add names to DB on mongoose
-const movieSchema = new mongoose.Schema({
-    title: String,
-    year: String,
-    poster: String
+// add strings to DB on mongoose
+const countersSchema = new mongoose.Schema({
+    name: String,
+    flag: String,
+    founded: Number,
+    population: Number,
+    populationRanks: Number,
+    area: Number,
+    gdp: String,
+    facts: {
+        fact1: String,
+        fact2: String,
+        fact3: String,
+        fact4: String,
+        fact5: String
+    } 
 });
  
-const Movie = mongoose.model('Movie', movieSchema);
+const Counter = mongoose.model('counter', countersSchema);
 
-// post request for movies
-app.post('/api/movies', async (req, res)=>{
+// post request for counters
+app.post('/api/counters', async (req, res)=>{
 
-    const { title, year, poster } = req.body;
+    const { name, flag, founded, population, populationRanks, area, gdp, facts } = req.body;
    
-    const newMovie = new Movie({ title, year, poster });
-    await newMovie.save();
+    const newCounter = new Counter({ name, flag, founded, population, populationRanks, area, gdp, facts });
+    await newCounter.save();
    
-    res.status(201).json({ message: 'Movie created successfully', movie: newMovie });
+    res.status(201).json({ message: 'Movie created successfully', counter: newCounter });
 });
 
 // gets a specific by it ID
-app.get('/api/movies/:id', async (req, res) => {
-    let movie = await Movie.findById(req.params.id );
-    res.send(movie);
+app.get('/api/counters/:id', async (req, res) => {
+    let counter = await Counter.findById(req.params.id );
+    res.send(counter);
 });
 
-// update the movies on the database
-app.put('/api/movies/:id', async (req, res) => {
-    let movie = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.send(movie);
+// update the counters on the database
+app.put('/api/counters/:id', async (req, res) => {
+    let counter = await Counter.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(counter);
 });
 
-// get json of all movies
-app.get('/api/movies', async (req, res) => {
-    const movies = await Movie.find({});
-    res.status(200).json({movies:movies});
+// get json of all counters
+app.get('/api/counters', async (req, res) => {
+    const counters = await Counter.find({});
+    res.status(200).json({counters:counters});
 });
 
-// get json of one movie by id
-app.get('/api/movies/:id', async (req, res) => {
-    const movie = await Movie.findById(req.params.id);
-    res.send(movie);
+// get json of one counter by id
+app.get('/api/counters/:id', async (req, res) => {
+    const counter = await Counter.findById(req.params.id);
+    res.send(counter);
 });
 
 // cors middleware
@@ -69,7 +80,7 @@ app.use(function(req, res, next) {
 
 // message route 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('WellCome to Countres-Geo-Guessing server');
 });
 
 // listen request of port
@@ -77,11 +88,11 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-// delete movies for list and DB
-app.delete('/api/movies/:id', async (req, res) => {
+// delete counters for list and DB
+app.delete('/api/counters/:id', async (req, res) => {
   
     console.log('Deleting movie with ID:', req.params.id);
-    const movie = await Movie.findByIdAndDelete(req.params.id);
-    res.status(200).send({ message: "Movie deleted successfully", movie });
+    const counter = await Counter.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Movie deleted successfully", counter });
     
 });
