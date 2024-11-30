@@ -23,7 +23,7 @@ export default function Edit(props) {
 
 // fetching and updating data from server.js
 useEffect(() => {
-    axios.get('http://localhost:4000/api/counters' + id)
+    axios.get('http://localhost:4000/api/countries' + id)
         .then((response) => {
             setName(response.data.name);
             setFlag(response.data.flag);
@@ -61,7 +61,7 @@ const handleSubmit = (event) => {
           fact5: fact5
         }
     };
-    axios.put('http://localhost:4000/api/counters' + id, newMovie)
+    axios.put('http://localhost:4000/api/countries' + id, newMovie)
         .then((res) => {
             console.log(res.data);
             navigate('/read');

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // Return the Create
 const Create = () => {
-  // array of movies of json
+  // array of countries of json
   // explain: it's a react hook that allows you to add state to a functional component
   const [name, setName] = useState('');
   const [flag, setFlag] = useState('');
@@ -18,7 +18,7 @@ const Create = () => {
   const [fact4, setFact4] = useState('');
   const [fact5, setFact5] = useState('');
 
-  // hands the sumbmits of title of the movies
+  // hands the sumbmits of title of the countries
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -42,7 +42,7 @@ const Create = () => {
     };
   
     // get counters from localhost:4000
-    axios.post('http://localhost:4000/api/counters', counter)
+    axios.post('http://localhost:4000/api/countries', counter)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));
   };
@@ -57,77 +57,77 @@ const Create = () => {
           <input type="text"
             className="form-control"
             value={name}
-            onChange={(e) => { setName(e.target.value) }} /* user add counter name*/ />
+            onChange={(e) => { setName(e.target.value) }} /* user add countries name*/ />
           <br/>
           <label>Add Counter Flag: </label>
           <input type="text"
             className="form-control"
             value={flag}
-            onChange={(e) => { setFlag(e.target.value) }} /* user add counter flag*/ />
+            onChange={(e) => { setFlag(e.target.value) }} /* user add countries flag*/ />
           <br/>
           <label>Add Counter Founded: </label>
           <input type="text"
             className="form-control"
             value={founded}
-            onChange={(e) => { setFounded(e.target.value) }} /* user add counter founded*/ />
+            onChange={(e) => { setFounded(e.target.value) }} /* user add countries founded*/ />
           <br/>
           <label>Add Counter Population: </label>
           <input type="text"
             className="form-control"
             value={population}
-            onChange={(e) => { setPopulation(e.target.value) }} /* user add counter population*/ />
+            onChange={(e) => { setPopulation(e.target.value) }} /* user add countries population*/ />
           <br/>
           <label>Add Counter Population Ranks: </label>
           <input type="text"
             className="form-control"
             value={populationRanks}
-            onChange={(e) => { setpopulationRanks(e.target.value) }} /* user add counter populationRanks*/ />
+            onChange={(e) => { setpopulationRanks(e.target.value) }} /* user add countries populationRanks*/ />
           <br/>
           <label>Add Counter Area: </label>
           <input type="text"
             className="form-control"
             value={area}
-            onChange={(e) => { setArea(e.target.value) }} /* user add counter area*/ />
+            onChange={(e) => { setArea(e.target.value) }} /* user add countries area*/ />
           <br/>
           <label>Add Counter GDP: </label>
           <input type="text"
             className="form-control"
             value={gdp}
-            onChange={(e) => { setGdp(e.target.value) }} /* user add counter gdp*/ />
+            onChange={(e) => { setGdp(e.target.value) }} /* user add countries gdp*/ />
           <br/>
           <label>Add Counter fact: </label>
           <label>Add Fact 1: </label>
           <input type="text"
             className="form-control"
             value={fact1}
-            onChange={(e) => setFact1(e.target.value)} /* user add counter fact1*/ />
+            onChange={(e) => setFact1(e.target.value)} /* user add countries fact1*/ />
           <br/>
           <label>Add Fact 2: </label>
           <input type="text"
             className="form-control"
             value={fact2}
-            onChange={(e) => setFact2(e.target.value)} /* user add counter fact2*/ />
+            onChange={(e) => setFact2(e.target.value)} /* user add countries fact2*/ />
           <br/>
           <label>Add Fact 3: </label>
           <input type="text"
             className="form-control"
             value={fact3}
-            onChange={(e) => setFact3(e.target.value)} /* user add counter fact3*/ />
+            onChange={(e) => setFact3(e.target.value)} /* user add countries fact3*/ />
           <br/>
           <label>Add Fact 4: </label>
           <input type="text"
             className="form-control"
             value={fact4}
-            onChange={(e) => setFact4(e.target.value)} /* user add counter fact4*/ />
+            onChange={(e) => setFact4(e.target.value)} /* user add countries fact4*/ />
           <br/>
           <label>Add Fact 5: </label>
           <input type="text"
             className="form-control"
             value={fact5}
-            onChange={(e) => setFact5(e.target.value)} /* user add counter fact5*/ />
+            onChange={(e) => setFact5(e.target.value)} /* user add countries fact5*/ />
           <br/>
         </div>
-        <input type="submit" value="Add Counter" />
+        <input type="submit" value="Add countries" />
       </form>
     </div>
   );
