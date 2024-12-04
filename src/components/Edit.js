@@ -23,20 +23,22 @@ export default function Edit(props) {
 
 // fetching and updating data from server.js
 useEffect(() => {
-    axios.get('http://localhost:4000/api/countries' + id)
+    axios.get('http://localhost:4000/api/countries/' + id)
         .then((response) => {
-            setName(response.data.name);
-            setFlag(response.data.flag);
-            setFounded(response.data.founded);
-            setPopulation(response.data.population);
-            setpopulationRanks(response.data.populationRanks);
-            setArea(response.data.area);
-            setGdp(response.data.gdp);
-            setFact1(response.data.fact1);
-            setFact2(response.data.fact2);
-            setFact3(response.data.fact3);
-            setFact4(response.data.fact4);
-            setFact5(response.data.fact5);
+            setName(response.data.name || '');
+            setFlag(response.data.flag || '');
+            setFounded(response.data.founded || '');
+            setPopulation(response.data.population || '');
+            setpopulationRanks(response.data.populationRanks || '');
+            setArea(response.data.area || '');
+            setGdp(response.data.gdp || '');
+            if (response.data.facts) {
+                setFact1(response.data.facts.fact1 || '');
+                setFact2(response.data.facts.fact2 || '');
+                setFact3(response.data.facts.fact3 || '');
+                setFact4(response.data.facts.fact4 || '');
+                setFact5(response.data.facts.fact5 || '');
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -46,22 +48,11 @@ useEffect(() => {
 // submit updated movie send to the DB
 const handleSubmit = (event) => {
     event.preventDefault();
-    const newMovie = { id,  name: name,
-        flag: flag,
-        founded: founded,
-        population: population,
-        populationRanks: populationRanks,
-        area: area,
-        gdp: gdp,
-        facts: {
-          fact1: fact1,
-          fact2: fact2,
-          fact3: fact3,
-          fact4: fact4,
-          fact5: fact5
-        }
+    const newCounter = { id,  name, flag, founded, population,
+        populationRanks, area, gdp, 
+        facts: { fact1, fact2, fact3, fact4, fact5 }
     };
-    axios.put('http://localhost:4000/api/countries' + id, newMovie)
+    axios.put('http://localhost:4000/api/countries/' + id, newCounter)
         .then((res) => {
             console.log(res.data);
             navigate('/read');
@@ -73,74 +64,74 @@ return (
     <div>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label>Add Counter Name: </label>
+                <label>Edit Counter Name: </label>
                 <input type="text"
                     className="form-control"
                     value={name}
-                    onChange={(e) => { setName(e.target.value) }} /* user add counter name*/ />
+                    onChange={(e) => setName(e.target.value) } /* user add counter name*/ />
                 <br/>
-                <label>Add Counter Flag: </label>
+                <label>Edit Counter Flag: </label>
                 <input type="text"
                     className="form-control"
                     value={flag}
-                    onChange={(e) => { setFlag(e.target.value) }} /* user add counter flag*/ />
+                    onChange={(e) => setFlag(e.target.value) } /* user add counter flag*/ />
                 <br/>
-                <label>Add Counter Founded: </label>
+                <label>Edit Counter Founded: </label>
                 <input type="text"
                     className="form-control"
                     value={founded}
-                    onChange={(e) => { setFounded(e.target.value) }} /* user add counter founded*/ />
+                    onChange={(e) => setFounded(e.target.value) } /* user add counter founded*/ />
                 <br/>
-                <label>Add Counter Population: </label>
+                <label>Edit Counter Population: </label>
                 <input type="text"
                     className="form-control"
                     value={population}
-                    onChange={(e) => { setPopulation(e.target.value) }} /* user add counter population*/ />
+                    onChange={(e) => setPopulation(e.target.value) } /* user add counter population*/ />
                 <br/>
-                <label>Add Counter Population Ranks: </label>
+                <label>Edit Counter Population Ranks: </label>
                 <input type="text"
                     className="form-control"
                     value={populationRanks}
-                    onChange={(e) => { setpopulationRanks(e.target.value) }} /* user add counter populationRanks*/ />
+                    onChange={(e) => setpopulationRanks(e.target.value) } /* user add counter populationRanks*/ />
                 <br/>
-                <label>Add Counter Area: </label>
+                <label>Edit Counter Area: </label>
                 <input type="text"
                     className="form-control"
                     value={area}
-                    onChange={(e) => { setArea(e.target.value) }} /* user add counter area*/ />
+                    onChange={(e) => setArea(e.target.value) } /* user add counter area*/ />
                 <br/>
-                <label>Add Counter GDP: </label>
+                <label>Edit Counter GDP: </label>
                 <input type="text"
                     className="form-control"
                     value={gdp}
-                    onChange={(e) => { setGdp(e.target.value) }} /* user add counter gdp*/ />
+                    onChange={(e) => setGdp(e.target.value) } /* user add counter gdp*/ />
                 <br/>
-                <label>Add Counter fact: </label>
-                <label>Add Fact 1: </label>
+                <label>Edit Counter fact: </label><br></br>
+                <label>Edit Fact 1: </label>
                 <input type="text"
                     className="form-control"
                     value={fact1}
                     onChange={(e) => setFact1(e.target.value)} /* user add counter fact1*/ />
                 <br/>
-                <label>Add Fact 2: </label>
+                <label>Edit Fact 2: </label>
                 <input type="text"
                     className="form-control"
                     value={fact2}
                     onChange={(e) => setFact2(e.target.value)} /* user add counter fact2*/ />
                 <br/>
-                <label>Add Fact 3: </label>
+                <label>Edit Fact 3: </label>
                 <input type="text"
                     className="form-control"
                     value={fact3}
                     onChange={(e) => setFact3(e.target.value)} /* user add counter fact3*/ />
                 <br/>
-                <label>Add Fact 4: </label>
+                <label>Edit Fact 4: </label>
                 <input type="text"
                     className="form-control"
                     value={fact4}
                     onChange={(e) => setFact4(e.target.value)} /* user add counter fact4*/ />
                 <br/>
-                <label>Add Fact 5: </label>
+                <label>Edit Fact 5: </label>
                 <input type="text"
                     className="form-control"
                     value={fact5}

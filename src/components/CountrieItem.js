@@ -12,7 +12,7 @@ function CounterItem(props) {
   // Delete Movies
   const handleDelete = (e) => {
     e.preventDefault();
-    axios.delete('http://localhost:4000/api/countries' + props.mycountrie._id)
+    axios.delete('http://localhost:4000/api/countries/' + props.mycountrie._id)
         .then(() => {
             props.Reload(); // Refresh the movie list after deletion
         })

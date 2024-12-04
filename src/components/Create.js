@@ -95,7 +95,7 @@ const Create = () => {
             value={gdp}
             onChange={(e) => { setGdp(e.target.value) }} /* user add countries gdp*/ />
           <br/>
-          <label>Add Counter fact: </label>
+          <label>Add Counter fact: </label><br></br>
           <label>Add Fact 1: </label>
           <input type="text"
             className="form-control"

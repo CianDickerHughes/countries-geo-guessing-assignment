@@ -42,12 +42,12 @@ app.post('/api/countries', async (req, res)=>{
     const newCountrie = new Countrie({ name, flag, founded, population, populationRanks, area, gdp, facts });
     await newCountrie.save();
    
-    res.status(201).json({ message: 'Movie created successfully', countrie: newCountrie });
+    res.status(201).json({ message: 'Countrie created successfully', countrie: newCountrie });
 });
 
 // gets a specific by it ID
 app.get('/api/countries/:id', async (req, res) => {
-    let countrie = await Counter.findById(req.params.id );
+    let countrie = await Countrie.findById(req.params.id );
     res.send(countrie);
 });
 
@@ -65,8 +65,8 @@ app.get('/api/countries', async (req, res) => {
 
 // get json of one countrie by id
 app.get('/api/countries/:id', async (req, res) => {
-    const countrie = await Counter.findById(req.params.id);
-    res.send(countri);
+    const countrie = await Countrie.findById(req.params.id);
+    res.send(countrie);
 });
 
 // cors middleware
@@ -92,7 +92,7 @@ app.listen(port, () => {
 app.delete('/api/countries/:id', async (req, res) => {
   
     console.log('Deleting movie with ID:', req.params.id);
-    const countrie = await Counter.findByIdAndDelete(req.params.id);
+    const countrie = await Countrie.findByIdAndDelete(req.params.id);
     res.status(200).send({ message: "countrie deleted successfully", countrie });
     
 });
