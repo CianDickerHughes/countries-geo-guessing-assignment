@@ -7,11 +7,11 @@ import earth from '../img/earth-globe-tool-svgrepo-com.svg';
 // Links to the home, create, read pages and Guess Countres Game
 const NavigationBar = () => {
   return (
-        <Navbar bg="secondary" data-bs-theme="light" style ={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        <Navbar bg="secondary" data-bs-theme="light" style ={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }} sticky='top'>
           <Container>
             <Navbar.Brand href="/">
-              <img src={earth} alt='world' style={{ width: '50px', height: 'auto' }} />
-              <br></br>Countries Geo Guess
+            <img src={earth} alt='world' style={{ width: '40px', height: 'auto' }} />
+            <br></br>Countries Geo Guess
             </Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/create">Add New Counter</Nav.Link>

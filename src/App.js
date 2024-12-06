@@ -5,6 +5,7 @@ import Read from './components/Read';
 import Create from './components/Create';
 import Edit from './components/Edit';
 import Game from './components/Game';
+import GameRunner from './components/GameRunner';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/create" element={<Create />/* The Create page */} />
         <Route path="/read" element={<Read />/* The Read page */} />
         <Route path="/Game" element={<Game />/* The Game page */} />
+        <Route path="/GameRunner" element={<GameRunner />} />
         <Route path='/edit/:id' element={<Edit /> /* The Edit Movies page */} />
       </Routes>
     </Router>

@@ -46,10 +46,11 @@ function CounterItem(props) {
             </ul>
           </div>
         </Card.Body>
-        <Link to={"/edit/" + props.mycountrie._id /* link to edit counter by ID*/} className="btn btn-primary">Edit</Link>
         <div>
-            {/* Delete counter button */}
-            <Button variant="danger" onClick={handleDelete}>Delete</Button>
+          {/* edit counter button */}
+          <Link to={"/edit/" + props.mycountrie._id /* link to edit counter by ID*/} className="btn btn-primary">Edit</Link>
+          {/* Delete counter button */}
+          <Button variant="danger" onClick={handleDelete}>Delete</Button>
         </div>
       </Card>
     </div>
