@@ -1,22 +1,71 @@
-import { useEffect } from "react";
+import { useState  } from 'react';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-import axios from "axios";
 import Button from 'react-bootstrap/Button';
 
-const GameQuestion = (props) => {
+const GameQuestion = ({ currentCountry, allCountries, onCorrectAnswer, onWrongAnswer, onNextQuestion }) => {
+    const [feedback, setFeedback] = useState(null); 
 
-    var i = 0;
-    useEffect(() => { 
-        i++;
-        console.log(i+"Countrie Item:", props.answerCountries);
-      }, [props.answerCountries]); // Only run this effect when the mymovie prop changes
-    
+    // Function to generate 4 MCQ Question
+    const generateOptions = () => {
+        const incorrectOptions = allCountries
+            .filter(country => country.name !== currentCountry.name) 
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 3); 
+
+        const allOptions = [...incorrectOptions, currentCountry]; // Add correct answer
+        return allOptions.sort(() => 0.5 - Math.random()); // Shuffle options
+    };
+
+    const options = generateOptions();
+
+    // give feedback to the user if Question is Correct or Wrong
+    const handleAnswer = (selectedOption) => {
+        if (selectedOption.name === currentCountry.name) {
+            setFeedback('Correct!');
+            onCorrectAnswer();
+        } else {
+            setFeedback('Wrong!'); 
+            onWrongAnswer();
+        }
+        
+        // Delay moving to the next question to let the user see the feedback
+        setTimeout(() => {
+            setFeedback(null); 
+            onNextQuestion();
+        }, 1000); 
+    };
 
     return (
-        <div>
-            <p>{props.answerCountries.name}</p>
-        </div>
+        <Card style={{ marginBottom: '20px' }}>
+            <Card.Header>What is the name of this country?</Card.Header>
+            <Card.Body>
+                <blockquote className="blockquote mb-0">
+                    <img
+                        src={currentCountry.flag}
+                        alt={currentCountry.name}
+                        style={{ width: 'auto', height: '250px' }}
+                    />
+                </blockquote>
+                <div>
+                    <h5>Choose the correct answer:</h5>
+                    {options.map((option, index) => (
+                        <Button
+                            key={index}
+                            variant="outline-primary"
+                            style={{ margin: '5px' }}
+                            onClick={() => handleAnswer(option)}
+                        >
+                            {option.name}
+                        </Button>
+                    ))}
+                </div>
+                {feedback && (
+                    <div style={{ marginTop: '10px', fontSize: '18px', color: feedback === 'Correct!' ? 'green' : 'red' }}>
+                        {feedback}
+                    </div>
+                )}
+            </Card.Body>
+        </Card>
     );
   };
   
