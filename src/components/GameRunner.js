@@ -1,5 +1,6 @@
 import { useEffect, useState  } from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom'; 
 import GameQuestion from './GameQuestion';
 
 const GameRunner = () => {
@@ -11,12 +12,13 @@ const GameRunner = () => {
     const [gameOver, setGameOver] = useState(false);
 
     const getCountries = () => {
+        // fetching and updating data from server.js
+        // Shuffle Countries
         axios.get('http://localhost:4000/api/countries')
             .then((response) => {
                 const shuffledCountries = [...response.data.countries].sort(() => 0.5 - Math.random());
                 setCountries(shuffledCountries);
                 setDataLoaded(true); 
-
             })
             .catch((error) => {
                 console.error("Error reloading data:", error);
@@ -28,6 +30,15 @@ const GameRunner = () => {
     useEffect(() => {
         getCountries()
     }, []);
+
+    // Restart Game when when Player Clicks on Restart
+    const restartGame = () => {
+        setScore(0);
+        setWrongAnswers(0);
+        setCurrentQuestionIndex(0);
+        setGameOver(false);
+        getCountries();
+    };
 
     // Increment the score
     const handleCorrectAnswer = () => {
@@ -54,11 +65,11 @@ const GameRunner = () => {
     return (
         <div style ={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <h3>My GameItem in another component</h3>
-            
+
             {dataLoaded && countries.length > 0 ? (
                 <div>
                     {!gameOver ? (
-                        <>
+                        <>  {/* Game Playing, show Flag and 4 Countrie options */}
                             <label>Question {currentQuestionIndex + 1} of {countries.length} : </label>
                             <label>Score: {score} : </label>
                             <label>Wrong Answers: {wrongAnswers}/3</label>
@@ -70,11 +81,22 @@ const GameRunner = () => {
                                 onNextQuestion={handleNextQuestion}
                             />
                         </>
-                    ) : (
-                        <div>
+                    ) : ( 
+                        <div> {/* Game Over, get score and player can restart game or go home page */}  
                             <h4>Game Over!</h4>
                             <p>Your final score: {score}</p>
                             <p>Number of wrong answers: {wrongAnswers}</p>
+                            <div>
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={restartGame}
+                                >
+                                    Restart Game
+                                </button>
+                                <Link to="/" className="btn btn-secondary" style={{ marginLeft: '10px' }}>
+                                    Go to Home
+                                </Link>
+                            </div>
                         </div>
                     )}
                 </div>

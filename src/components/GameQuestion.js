@@ -43,12 +43,12 @@ const GameQuestion = ({ currentCountry, allCountries, onCorrectAnswer, onWrongAn
                     <img
                         src={currentCountry.flag}
                         alt={currentCountry.name}
-                        style={{ width: 'auto', height: '250px' }}
+                        style={{ width: 'auto', height: '250px', border: '3px solid #000', borderRadius: '5px' }}
                     />
                 </blockquote>
                 <div>
                     <h5>Choose the correct answer:</h5>
-                    {options.map((option, index) => (
+                    {options.map((option, index) => ( // 4 Countrie Answers
                         <Button
                             key={index}
                             variant="outline-primary"
@@ -59,7 +59,7 @@ const GameQuestion = ({ currentCountry, allCountries, onCorrectAnswer, onWrongAn
                         </Button>
                     ))}
                 </div>
-                {feedback && (
+                {feedback && ( // is Answer Correct or Wrong 
                     <div style={{ marginTop: '10px', fontSize: '18px', color: feedback === 'Correct!' ? 'green' : 'red' }}>
                         {feedback}
                     </div>

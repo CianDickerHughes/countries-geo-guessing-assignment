@@ -24,7 +24,8 @@ const Create = () => {
     
     console.log(`Name: ${name}, Flag: ${flag}, Founded: ${founded}`);
     
-    const counter = {
+    // Array of layout of Countries
+    const countrie = {
       name: name,
       flag: flag,
       founded: founded,
@@ -41,61 +42,61 @@ const Create = () => {
       } 
     };
   
-    // get counters from localhost:4000
-    axios.post('http://localhost:4000/api/countries', counter)
+    // get countries from localhost:4000
+    axios.post('http://localhost:4000/api/countries', countrie)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));
   };
 
-  // form to upload counters to the server
+  // form to upload countries to the server
   return (
-    <div>
-      <h2>This is my Create Component.</h2>
-      <form onSubmit={handleSubmit}>
+    <div  style={{ flexDirection: 'column', display: 'flex', alignItems: 'center', height: '100vh' }}>
+      <h2>Add a new Countrie to the DataBase</h2>
+      <form onSubmit={handleSubmit} style={{ width: '90%' }}>
         <div className="form-group">
-          <label>Add Counter Name: </label>
+          <label>Add Countrie Name: </label>
           <input type="text"
             className="form-control"
             value={name}
             onChange={(e) => { setName(e.target.value) }} /* user add countries name*/ />
           <br/>
-          <label>Add Counter Flag: </label>
+          <label>Add Countrie Flag: </label>
           <input type="text"
             className="form-control"
             value={flag}
             onChange={(e) => { setFlag(e.target.value) }} /* user add countries flag*/ />
           <br/>
-          <label>Add Counter Founded: </label>
+          <label>Add Countrie Founded: </label>
           <input type="text"
             className="form-control"
             value={founded}
             onChange={(e) => { setFounded(e.target.value) }} /* user add countries founded*/ />
           <br/>
-          <label>Add Counter Population: </label>
+          <label>Add Countrie Population: </label>
           <input type="text"
             className="form-control"
             value={population}
             onChange={(e) => { setPopulation(e.target.value) }} /* user add countries population*/ />
           <br/>
-          <label>Add Counter Population Ranks: </label>
+          <label>Add Countrie Population Ranks: </label>
           <input type="text"
             className="form-control"
             value={populationRanks}
             onChange={(e) => { setpopulationRanks(e.target.value) }} /* user add countries populationRanks*/ />
           <br/>
-          <label>Add Counter Area: </label>
+          <label>Add Countrie Area: </label>
           <input type="text"
             className="form-control"
             value={area}
             onChange={(e) => { setArea(e.target.value) }} /* user add countries area*/ />
           <br/>
-          <label>Add Counter GDP: </label>
+          <label>Add Countrie GDP: </label>
           <input type="text"
             className="form-control"
             value={gdp}
             onChange={(e) => { setGdp(e.target.value) }} /* user add countries gdp*/ />
           <br/>
-          <label>Add Counter fact: </label><br></br>
+          <label>Add Countrie fact: </label><br></br>
           <label>Add Fact 1: </label>
           <input type="text"
             className="form-control"

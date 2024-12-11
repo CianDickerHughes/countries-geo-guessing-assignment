@@ -4,24 +4,24 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 
-function CounterItem(props) {
+function CountieItem(props) {
   useEffect(() => { 
     console.log("Countrie Item:", props.mycountrie);
-  }, [props.mycountrie]); // Only run this effect when the mymovie prop changes
+  }, [props.mycountrie]); // Only run this effect when the mycountie prop changes
 
-  // Delete Movies
+  // Delete Countrie
   const handleDelete = (e) => {
     e.preventDefault();
     axios.delete('http://localhost:4000/api/countries/' + props.mycountrie._id)
         .then(() => {
-            props.Reload(); // Refresh the movie list after deletion
+            props.Reload(); // Refresh the Countrie list after deletion
         })
         .catch((error) => {
-            console.error("Error deleting counter:", error);
+            console.error("Error deleting countie:", error);
         });
   };
 
-  // return MovieItem component and Display JSON movies with cards
+  // return countieItem component and Display JSON counties with cards
   return (
     <div>
       <Card>
@@ -47,9 +47,9 @@ function CounterItem(props) {
           </div>
         </Card.Body>
         <div>
-          {/* edit counter button */}
-          <Link to={"/edit/" + props.mycountrie._id /* link to edit counter by ID*/} className="btn btn-primary">Edit</Link>
-          {/* Delete counter button */}
+          {/* edit countie button */}
+          <Link to={"/edit/" + props.mycountrie._id /* link to edit countie by ID*/} className="btn btn-primary">Edit</Link>
+          {/* Delete countie Button by Id */}
           <Button variant="danger" onClick={handleDelete}>Delete</Button>
         </div>
       </Card>
@@ -57,4 +57,4 @@ function CounterItem(props) {
   );
 }
 
-export default CounterItem;
+export default CountieItem;

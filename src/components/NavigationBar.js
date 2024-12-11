@@ -14,8 +14,8 @@ const NavigationBar = () => {
             <br></br>Countries Geo Guess
             </Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/create">Add New Counter</Nav.Link>
-              <Nav.Link href="/read">Read All Counters</Nav.Link>
+              <Nav.Link href="/create">Add New Countre</Nav.Link>
+              <Nav.Link href="/read">Read All Countres</Nav.Link>
               <Nav.Link href="/game">Guess Countres Game</Nav.Link>
             </Nav>
           </Container>
