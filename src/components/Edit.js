@@ -48,6 +48,11 @@ useEffect(() => {
 // submit updated Countrie send to the DB
 const handleSubmit = (event) => {
     event.preventDefault();
+    // Validate numeric fields for Editing Countrie
+    if (isNaN(founded) || isNaN(population) || isNaN(populationRanks) || isNaN(area)) {
+        alert("Please ensure 'Founded', 'Population', 'Population Ranks', and 'Area' are numbers.");
+        return;
+    }
     const newCountrie = { id,  name, flag, founded, population,
         populationRanks, area, gdp, 
         facts: { fact1, fact2, fact3, fact4, fact5 }

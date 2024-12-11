@@ -41,6 +41,12 @@ const Create = () => {
         fact5: fact5
       } 
     };
+
+     // Validate numeric fields for add Countrie
+     if (isNaN(founded) || isNaN(population) || isNaN(populationRanks) || isNaN(area)) {
+      alert("Please ensure 'Founded', 'Population', 'Population Ranks', and 'Area' are numbers.");
+      return;
+    }
   
     // get countries from localhost:4000
     axios.post('http://localhost:4000/api/countries', countrie)
