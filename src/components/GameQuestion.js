@@ -18,7 +18,7 @@ const GameQuestion = ({ currentCountry, allCountries, onCorrectAnswer, onWrongAn
 
     const options = generateOptions();
 
-    // give feedback to the user if Question is Correct or Wrong
+    // Give feedback to the user if Question is Correct or Wrong
     const handleAnswer = (selectedOption) => {
         if (selectedOption.name === currentCountry.name) {
             setFeedback('Correct!');

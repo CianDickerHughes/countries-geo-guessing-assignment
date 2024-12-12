@@ -12,7 +12,7 @@ const GameRunner = () => {
     const [gameOver, setGameOver] = useState(false);
 
     const getCountries = () => {
-        // fetching and updating data from server.js
+        // Fetching and updating data from server.js
         // Shuffle Countries
         axios.get('http://localhost:4000/api/countries')
             .then((response) => {
@@ -25,8 +25,8 @@ const GameRunner = () => {
             });
     };
 
-    // get Countries from http
-    // explain: it tells React that your component needs to do something after render
+    // Get Countries from http
+    // Explain: it tells React that your component needs to do something after render
     useEffect(() => {
         getCountries()
     }, []);

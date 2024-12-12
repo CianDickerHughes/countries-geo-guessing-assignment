@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // Return the Create
 const Create = () => {
-  // array of countries of json
+  // Array of countries of json
   // explain: it's a react hook that allows you to add state to a functional component
   const [name, setName] = useState('');
   const [flag, setFlag] = useState('');
@@ -18,7 +18,7 @@ const Create = () => {
   const [fact4, setFact4] = useState('');
   const [fact5, setFact5] = useState('');
 
-  // hands the sumbmits of title of the countries
+  // Hands the sumbmits of title of the countries
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -48,13 +48,13 @@ const Create = () => {
       return;
     }
   
-    // get countries from localhost:4000
+    // Get countries from localhost:4000
     axios.post('http://localhost:4000/api/countries', countrie)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.data));
   };
 
-  // form to upload countries to the server
+  // Form to upload countries to the server
   return (
     <div  style={{ flexDirection: 'column', display: 'flex', alignItems: 'center', height: '100vh' }}>
       <h2>Add a new Countrie to the DataBase</h2>

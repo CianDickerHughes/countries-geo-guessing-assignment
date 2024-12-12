@@ -21,7 +21,7 @@ function CountieItem(props) {
         });
   };
 
-  // return countieItem component and Display JSON counties with cards
+  // Return countieItem component and Display JSON counties with cards
   return (
     <div>
       <Card>
@@ -47,8 +47,8 @@ function CountieItem(props) {
           </div>
         </Card.Body>
         <div>
-          {/* edit countie button */}
-          <Link to={"/edit/" + props.mycountrie._id /* link to edit countie by ID*/} className="btn btn-primary">Edit</Link>
+          {/* Edit countie button */}
+          <Link to={"/edit/" + props.mycountrie._id /* Link to edit countie by ID*/} className="btn btn-primary">Edit</Link>
           {/* Delete countie Button by Id */}
           <Button variant="danger" onClick={handleDelete}>Delete</Button>
         </div>

@@ -4,8 +4,8 @@ import axios from "axios";
 
 // The Read
 const Read = () => {
-    // array of Countries of json
-    // explain: it's a react hook that allows you to add state to a functional component
+    // Array of Countries of json
+    // Explain: it's a react hook that allows you to add state to a functional component
     const [countries, setCountrie] = useState([]);
 
     const Reload = () => {
@@ -19,13 +19,13 @@ const Read = () => {
           });
     };
 
-    // get Countries from http
-    // explain: it tells React that your component needs to do something after render
+    // Get Countries from http
+    // Explain: it tells React that your component needs to do something after render
     useEffect(() => {
       Reload()
     }, []);
     
-    // return read component
+    // Return read component
     return (
         <div>
             <h3>Hello from read component!</h3>

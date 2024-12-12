@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-// get old text of Countries to edit
+// Get old text of Countries to edit
 export default function Edit(props) {
   let { id } = useParams();
   const [name, setName] = useState('');
@@ -21,7 +21,7 @@ export default function Edit(props) {
   const [fact5, setFact5] = useState('');
   const navigate = useNavigate();
 
-// fetching and updating data from server.js
+// Fetching and updating data from server.js
 useEffect(() => {
     axios.get('http://localhost:4000/api/countries/' + id)
         .then((response) => {
@@ -45,7 +45,7 @@ useEffect(() => {
         });
 }, [id]);
 
-// submit updated Countrie send to the DB
+// Submit updated Countrie send to the DB
 const handleSubmit = (event) => {
     event.preventDefault();
     // Validate numeric fields for Editing Countrie
@@ -64,7 +64,7 @@ const handleSubmit = (event) => {
         });
 }
 
-// return html of the Edit of Countrie Handle Submit
+// Return html of the Edit of Countrie Handle Submit
 return (
     <div style={{ flexDirection: 'column', display: 'flex', alignItems: 'center', height: '100vh' }}>
         <h2>Edit {name} to the DataBase</h2>
@@ -74,25 +74,25 @@ return (
                 <input type="text"
                     className="form-control"
                     value={name}
-                    onChange={(e) => setName(e.target.value) } /* user add Countrie name*/ />
+                    onChange={(e) => setName(e.target.value) } /* User add Countrie name*/ />
                 <br/>
                 <label>Edit Countrie Flag: </label>
                 <input type="text"
                     className="form-control"
                     value={flag}
-                    onChange={(e) => setFlag(e.target.value) } /* user add Countrie flag*/ />
+                    onChange={(e) => setFlag(e.target.value) } /* User add Countrie flag*/ />
                 <br/>
                 <label>Edit Countrie Founded: </label>
                 <input type="text"
                     className="form-control"
                     value={founded}
-                    onChange={(e) => setFounded(e.target.value) } /* user add Countrie founded*/ />
+                    onChange={(e) => setFounded(e.target.value) } /* User add Countrie founded*/ />
                 <br/>
                 <label>Edit Countrie Population: </label>
                 <input type="text"
                     className="form-control"
                     value={population}
-                    onChange={(e) => setPopulation(e.target.value) } /* user add Countrie population*/ />
+                    onChange={(e) => setPopulation(e.target.value) } /* User add Countrie population*/ />
                 <br/>
                 <label>Edit Countrie Population Ranks: </label>
                 <input type="text"
@@ -104,44 +104,44 @@ return (
                 <input type="text"
                     className="form-control"
                     value={area}
-                    onChange={(e) => setArea(e.target.value) } /* user add Countrie area*/ />
+                    onChange={(e) => setArea(e.target.value) } /* User add Countrie area*/ />
                 <br/>
                 <label>Edit Countrie GDP: </label>
                 <input type="text"
                     className="form-control"
                     value={gdp}
-                    onChange={(e) => setGdp(e.target.value) } /* user add Countrie gdp*/ />
+                    onChange={(e) => setGdp(e.target.value) } /* User add Countrie gdp*/ />
                 <br/>
                 <label>Edit Countrie fact: </label><br></br>
                 <label>Edit Fact 1: </label>
                 <input type="text"
                     className="form-control"
                     value={fact1}
-                    onChange={(e) => setFact1(e.target.value)} /* user add Countrie fact1*/ />
+                    onChange={(e) => setFact1(e.target.value)} /* User add Countrie fact1*/ />
                 <br/>
                 <label>Edit Fact 2: </label>
                 <input type="text"
                     className="form-control"
                     value={fact2}
-                    onChange={(e) => setFact2(e.target.value)} /* user add Countrie fact2*/ />
+                    onChange={(e) => setFact2(e.target.value)} /* User add Countrie fact2*/ />
                 <br/>
                 <label>Edit Fact 3: </label>
                 <input type="text"
                     className="form-control"
                     value={fact3}
-                    onChange={(e) => setFact3(e.target.value)} /* user add Countrie fact3*/ />
+                    onChange={(e) => setFact3(e.target.value)} /* User add Countrie fact3*/ />
                 <br/>
                 <label>Edit Fact 4: </label>
                 <input type="text"
                     className="form-control"
                     value={fact4}
-                    onChange={(e) => setFact4(e.target.value)} /* user add Countrie fact4*/ />
+                    onChange={(e) => setFact4(e.target.value)} /* User add Countrie fact4*/ />
                 <br/>
                 <label>Edit Fact 5: </label>
                 <input type="text"
                     className="form-control"
                     value={fact5}
-                    onChange={(e) => setFact5(e.target.value)} /* user add Countrie fact5*/ />
+                    onChange={(e) => setFact5(e.target.value)} /* User add Countrie fact5*/ />
                 <br/>
             </div>
             <div className="form-group">
