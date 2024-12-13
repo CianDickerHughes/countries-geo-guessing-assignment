@@ -16,7 +16,7 @@ const NavigationBar = () => {
             </Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/create" style={window.location.pathname === '/create' ? activeNavLinkStyle : navLinkStyle}>Add New Country</Nav.Link>
-              <Nav.Link href="/read" style={window.location.pathname === '/read' ? activeNavLinkStyle : navLinkStyle}>Read All Countries</Nav.Link>
+              <Nav.Link href="/read" style={window.location.pathname === '/read' ? activeNavLinkStyle : navLinkStyle}>Show All Countries</Nav.Link>
               <Nav.Link href="/game" style={window.location.pathname === '/game' ? activeNavLinkStyle : navLinkStyle}>Guess Countries Game</Nav.Link>
             </Nav>
           </Container>

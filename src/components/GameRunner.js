@@ -69,9 +69,9 @@ const GameRunner = () => {
             {dataLoaded && countries.length > 0 ? (
                 <div>
                     {!gameOver ? (
-                        <>  {/* Game Playing, show Flag and 4 Countrie options */}
-                            <label>Question {currentQuestionIndex + 1} of {countries.length} : </label>
-                            <label>Score: {score} : </label>
+                        <>  {/* Game Playing, show Flag and 4 Countries options */}
+                            <label>Question {currentQuestionIndex + 1} of {countries.length} : &nbsp;</label>
+                            <label>Score: {score} : &nbsp;</label>
                             <label>Wrong Answers: {wrongAnswers}/3</label>
                             <GameQuestion
                                 currentCountry={countries[currentQuestionIndex]}

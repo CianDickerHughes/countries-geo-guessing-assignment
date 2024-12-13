@@ -72,7 +72,7 @@ const Create = () => {
             value={flag}
             onChange={(e) => { setFlag(e.target.value) }} /* user add Country flag*/ />
           <br/>
-          <label>Add Country Founded: </label>
+          <label>Add when Country was Founded: </label>
           <input type="text"
             className="form-control"
             value={founded}

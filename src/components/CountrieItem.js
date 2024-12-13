@@ -28,7 +28,7 @@ function CountieItem(props) {
         <Card.Header>{props.mycountrie.name}</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
-            <img src={props.mycountrie.flag} alt={props.mycountrie.name} style={{ width: '250px', height: 'auto' }} />
+            <img src={props.mycountrie.flag} alt={props.mycountrie.name}  style={{ width: '250px', height: 'auto', border: '3px solid #000', borderRadius: '5px' }} />
             <footer>Founded: {props.mycountrie.founded}</footer>
           </blockquote>
           <div>
@@ -38,11 +38,11 @@ function CountieItem(props) {
             <p>GDP: {props.mycountrie.gdp}</p>
             <h6>Facts:</h6>
             <ul>
-                <li>Fact 1:{props.mycountrie.facts.fact1}</li>
-                <li>Fact 2:{props.mycountrie.facts.fact2}</li>
-                <li>Fact 3:{props.mycountrie.facts.fact3}</li>
-                <li>Fact 4:{props.mycountrie.facts.fact4}</li>
-                <li>Fact 5:{props.mycountrie.facts.fact5}</li>
+                <li>Fact 1: {props.mycountrie.facts.fact1}</li>
+                <li>Fact 2: {props.mycountrie.facts.fact2}</li>
+                <li>Fact 3: {props.mycountrie.facts.fact3}</li>
+                <li>Fact 4: {props.mycountrie.facts.fact4}</li>
+                <li>Fact 5: {props.mycountrie.facts.fact5}</li>
             </ul>
           </div>
         </Card.Body>

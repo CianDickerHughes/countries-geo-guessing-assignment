@@ -16,7 +16,7 @@ const Content = () => {
           <button style={buttonStyle /* Go to Create.js */}>Add New Country</button>
         </Link>
         <Link to="/read">
-          <button style={buttonStyle} /* Go to Read.js */>Read Countries</button>
+          <button style={buttonStyle} /* Go to Read.js */>Show Countries</button>
         </Link>
         <Link to="/Game">
           <button style={buttonStyle} /* Go to Game.js */>Play Geo-Guesser</button>
