@@ -50,7 +50,10 @@ const Create = () => {
   
     // Get countries from localhost:4000
     axios.post('http://localhost:4000/api/countries', countrie)
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data)
+        alert("Country Added to DataBase");
+      })
       .catch((err) => console.log(err.data));
   };
 
