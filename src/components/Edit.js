@@ -145,7 +145,7 @@ return (
                 <br/>
             </div>
             <div className="form-group">
-                <input type="submit" value="Edit Countrie" className="btn btn-primary" />
+                <input type="submit" value="Edit Country" className="btn btn-primary" />
             </div>
         </form>
     </div>

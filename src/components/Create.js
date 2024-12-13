@@ -134,7 +134,7 @@ const Create = () => {
             onChange={(e) => setFact5(e.target.value)} /* user add Country fact5*/ />
           <br/>
         </div>
-        <input type="submit" value="Add countries" />
+        <input type="submit" value="Add Country" />
       </form>
     </div>
   );
