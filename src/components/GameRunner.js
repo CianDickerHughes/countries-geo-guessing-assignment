@@ -64,7 +64,7 @@ const GameRunner = () => {
     
     return (
         <div style ={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <h3>My GameItem in another component</h3>
+            <h3>Playing Game</h3>
 
             {dataLoaded && countries.length > 0 ? (
                 <div>

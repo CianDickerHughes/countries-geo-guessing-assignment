@@ -28,7 +28,7 @@ const Read = () => {
     // Return read component
     return (
         <div>
-            <h3>Hello from read component!</h3>
+            <h3>Read Country</h3>
             <Countrie myCountrie={countries} ReloadData={Reload} /*PASS data to Countries.js*//>
         </div>
     );

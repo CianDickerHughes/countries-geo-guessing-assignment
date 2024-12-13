@@ -12,12 +12,12 @@ const NavigationBar = () => {
           <Container>
             <Navbar.Brand href="/">
             <img src={earth} alt='world' style={{ width: '40px', height: 'auto' }} />
-            <br></br>Countries Geo Guess
+            <br></br>Countries Geo Guessing
             </Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/create" style={window.location.pathname === '/create' ? activeNavLinkStyle : navLinkStyle}>Add New Countre</Nav.Link>
-              <Nav.Link href="/read" style={window.location.pathname === '/read' ? activeNavLinkStyle : navLinkStyle}>Read All Countres</Nav.Link>
-              <Nav.Link href="/game" style={window.location.pathname === '/game' ? activeNavLinkStyle : navLinkStyle}>Guess Countres Game</Nav.Link>
+              <Nav.Link href="/create" style={window.location.pathname === '/create' ? activeNavLinkStyle : navLinkStyle}>Add New Country</Nav.Link>
+              <Nav.Link href="/read" style={window.location.pathname === '/read' ? activeNavLinkStyle : navLinkStyle}>Read All Countries</Nav.Link>
+              <Nav.Link href="/game" style={window.location.pathname === '/game' ? activeNavLinkStyle : navLinkStyle}>Guess Countries Game</Nav.Link>
             </Nav>
           </Container>
       </Navbar>
